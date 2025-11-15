@@ -32,3 +32,18 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+log/*.log
+
+# Arquivos do banco
+*.sqlite3
+*.db
+
+# Arquivos temporários
+tmp/
