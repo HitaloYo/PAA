@@ -1,18 +1,27 @@
 Rails.application.routes.draw do
-  get "solicitacoes/index"
-  get "staticpages/sobre"
-  get "staticpages/contato"
-  get "staticpages/ajudalogin"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
+  get 'financeiro', to: "financeiro#index"
+  get 'aluno_online', to: "aluno_online#index"
+  get 'disciplinas', to: "disciplinas#index"
+  
+  #Area de Login
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
+  #Solicitações
+  get 'solicitacoes', to: 'solicitacoes#index'
+  
+  # Paginas Estaticas
+  get 'sobre', to: 'staticpages#sobre'
+  get 'contato', to: 'staticpages#contato'
+  get 'ajuda-login', to: 'staticpages#ajudalogin'
+  
+  #Perfil do aluno
+  get 'perfil', to: "perfil#index"
+  
+  #ambiente virtual
+  get 'ambiente_virtual', to: "ambiente_virtual#index"
+  
   # root "posts#index"
+  root "dashboard#index"
 end

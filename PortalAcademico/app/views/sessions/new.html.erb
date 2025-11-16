@@ -1,0 +1,52 @@
+<header>
+    <div id="titulo">
+        <h1>Instituição</h1>
+        <h1 id="t_2">Qualquer</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><%= link_to 'Sobre', sobre_path %></li>
+            <li><%= link_to 'Contato', contato_path %></li>
+            <li><%= link_to 'Precisa de ajuda com o login?', ajuda_login_path, id: 'ajuda' %></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <aside>
+        <%= form_with url: login_path, local: true do |form| %>
+            <label for="matricula">Matrícula</label>
+            <%= form.text_field :matricula, 
+                              placeholder: "Digite sua matrícula", 
+                              required: true,
+                              class: 'form-input' %>
+
+            <label for="password">Senha</label>
+            <%= form.password_field :password, 
+                                  placeholder: "Digite sua senha", 
+                                  required: true,
+                                  class: 'form-input' %>
+
+            <%= form.submit "Entrar", class: 'login-submit' %>
+        <% end %>
+        
+        <% if flash[:alert] %>
+            <div class="alert" style="color: red; margin-top: 15px; text-align: center;">
+                <%= flash[:alert] %>
+            </div>
+        <% end %>
+        
+        <% if flash[:notice] %>
+            <div class="notice" style="color: green; margin-top: 15px; text-align: center;">
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+    </aside>
+    
+    <article>
+        <%= image_tag 'logo.png', 
+                     alt: 'Logotipo institucional da empresa',
+                     class: 'login-image' %>
+    </article>
+</main>

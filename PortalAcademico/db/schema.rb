@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_15_031651) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_15_214125) do
   create_table "alunos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "matricula", null: false
     t.string "nome", null: false
     t.string "email", null: false
-    t.string "senha", null: false
     t.string "cpf", null: false
     t.datetime "data_nascimento", null: false
     t.datetime "data_criacao", null: false
     t.boolean "ativo", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest", null: false
     t.index ["cpf"], name: "index_alunos_on_cpf", unique: true
     t.index ["email"], name: "index_alunos_on_email", unique: true
     t.index ["matricula"], name: "index_alunos_on_matricula", unique: true

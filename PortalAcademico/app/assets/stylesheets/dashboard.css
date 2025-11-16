@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: rgb(34, 34, 34);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background-color: rgb(34, 34, 34);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  border-bottom: 5px solid rgb(132, 14, 201);
+}
+
+header h1 {
+  font-size: 28px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* BOTÕES DO HEADER - AGORA SÃO LINKS */
+.header-button {
+  background-color: rgb(132, 14, 201);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-button:hover {
+  background-color: #9b30ff;
+  color: white;
+  text-decoration: none;
+}
+
+/* BOTÃO DE SAIR ESPECÍFICO */
+.logout-btn {
+  background-color: #dc3545;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+.logo {
+  height: 65px;
+}
+
+/* MAIN CONTENT */
+main {
+  padding: 40px;
+}
+
+.welcome {
+  background: linear-gradient(135deg, rgb(132, 14, 201), rgb(34, 34, 34));
+  color: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcome-text {
+  max-width: 60%;
+}
+
+.welcome-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.logo-welcome {
+  height: 100px;
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* CARDS - AGORA SÃO LINKS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid rgb(132, 14, 201);
+  border-radius: 12px;
+  padding: 25px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover {
+  background-color: whitesmoke;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(132, 14, 201, 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.card i {
+  font-size: 40px;
+  color: rgb(132, 14, 201);
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: rgb(132, 14, 201);
+  margin-bottom: 10px;
+}
+
+/* PERFIL E CALENDÁRIO */
+.profile-calendar {
+  background-color: whitesmoke;
+  border: 2px solid rgb(132, 14, 201);
+  border-radius: 12px;
+  padding: 25px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* PLACEHOLDER DE PERFIL */
+.profile-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgb(132, 14, 201), rgb(160, 60, 220));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px auto;
+  border: 3px solid rgb(132, 14, 201);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.profile-placeholder i {
+  font-size: 40px;
+  color: white;
+}
+
+.profile-image {
+  width: 90px;           /* Largura fixa */
+  height: 90px;          /* Altura fixa */
+  border-radius: 50%;    /* Torna redondo */
+  margin-bottom: 10px;
+  border: 3px solid rgb(132, 14, 201);
+  object-fit: cover;     /* IMPORTANTE: corta a imagem para caber */
+  object-position: center; /* Centraliza a imagem */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.profile h3 {
+  color: rgb(132, 14, 201);
+}
+
+.calendar {
+  text-align: center;
+  border-top: 2px solid rgb(132, 14, 201);
+  padding-top: 15px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .header-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .welcome {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .welcome-text {
+    max-width: 100%;
+  }
+  
+  .content {
+    flex-direction: column;
+  }
+  
+  .profile-calendar {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .cards {
+    justify-content: center;
+  }
+}
