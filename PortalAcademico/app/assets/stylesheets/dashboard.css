@@ -52,15 +52,6 @@ header h1 {
   text-decoration: none;
 }
 
-/* BOTÃO DE SAIR ESPECÍFICO */
-.logout-btn {
-  background-color: #dc3545;
-}
-
-.logout-btn:hover {
-  background-color: #c82333;
-}
-
 .logo {
   height: 65px;
 }

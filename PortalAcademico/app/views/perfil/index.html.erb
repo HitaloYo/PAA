@@ -1,2 +1,108 @@
-<h1>Perfil#index</h1>
-<p>Find me in app/views/perfil/index.html.erb</p>
+<section class="welcome">
+  <div class="welcome-text">
+    <h2>Perfil do Aluno</h2>
+    <p>Gerencie e atualize suas informações pessoais e acadêmicas.</p>
+  </div>
+  <%= image_tag "logo.png", alt: "Logo Instituto", class: "logo-welcome" %>
+</section>
+
+<section class="perfil-section">
+  <!-- Coluna esquerda -->
+  <div class="perfil-esquerda">
+    <div class="perfil-card">
+      <div class="foto-perfil">A</div>
+      <h3>NOME DO ALUNO</h3>
+      <p class="matricula">N° matrícula 000000</p>
+      <span class="status">ATIVO</span>
+
+      <p><strong>Curso:</strong><br />Curso de Exemplo - Noturno</p>
+      <p><strong>Unidade:</strong><br />Campus Central</p>
+
+      <button class="btn-carteirinha">
+        <i class="bi bi-card-text"></i> Gerar carteirinha digital
+      </button>
+    </div>
+
+    <div class="seguranca-card">
+      <div class="seguranca-header">
+        <h3>Segurança</h3>
+        <button class="btn-editar">
+          <i class="bi bi-arrow-repeat"></i> Atualizar dados
+        </button>
+      </div>
+
+      <div class="seguranca-body">
+        <label for="novaSenha">Nova senha</label>
+        <input type="password" id="novaSenha" placeholder="Digite a nova senha" />
+
+        <label for="confirmarSenha">Confirmação da senha</label>
+        <input
+          type="password"
+          id="confirmarSenha"
+          placeholder="Confirme a nova senha"
+        />
+      </div>
+    </div>
+  </div>
+
+  
+  <%= form_with url: "#", class: "perfil-direita" do |form| %>
+    <div class="perfil-grupo">
+      <h3>Dados pessoais</h3>
+      <div class="form-linha">
+        <%= form.text_field :cpf, placeholder: "CPF" %>
+        <%= form.text_field :nome_completo, placeholder: "Nome completo" %>
+      </div>
+      <div class="form-linha">
+        <%= form.text_field :cor_raca, placeholder: "Cor/Raça" %>
+        <%= form.text_field :estado_civil, placeholder: "Estado civil" %>
+        <%= form.text_field :sexo, placeholder: "Sexo" %>
+      </div>
+      <div class="form-linha">
+        <%= form.text_field :data_nascimento, placeholder: "Data de nascimento" %>
+        <%= form.text_field :estado_nascimento, placeholder: "Estado de nascimento" %>
+        <%= form.text_field :cidade_nascimento, placeholder: "Cidade de nascimento" %>
+      </div>
+    </div>
+
+    <div class="perfil-grupo">
+      <h3>Identificação</h3>
+      <div class="form-linha">
+        <%= form.text_field :tipo_documento, placeholder: "Tipo de documento" %>
+        <%= form.text_field :numero_documento, placeholder: "Número do documento" %>
+        <%= form.text_field :data_expedicao, placeholder: "Data de expedição" %>
+      </div>
+      <div class="form-linha">
+        <%= form.text_field :orgao_emissor, placeholder: "Órgão emissor" %>
+        <%= form.text_field :uf_emissao, placeholder: "UF de emissão" %>
+      </div>
+      <div class="form-linha">
+        <%= form.text_field :nome_pai, placeholder: "Nome do pai" %>
+        <%= form.text_field :nome_mae, placeholder: "Nome da mãe" %>
+      </div>
+    </div>
+
+    <div class="perfil-grupo">
+      <h3>Informações de contato</h3>
+      <div class="form-linha">
+        <%= form.text_field :ddd, placeholder: "DDD" %>
+        <%= form.text_field :celular, placeholder: "Celular" %>
+        <%= form.email_field :email, placeholder: "E-mail" %>
+      </div>
+    </div>
+
+    <div class="perfil-grupo">
+      <h3>Informações de endereço</h3>
+      <div class="form-linha">
+        <%= form.text_field :cep, placeholder: "CEP" %>
+        <%= form.text_field :logradouro, placeholder: "Logradouro" %>
+        <%= form.text_field :numero, placeholder: "Número" %>
+      </div>
+      <div class="form-linha">
+        <%= form.text_field :bairro, placeholder: "Bairro" %>
+        <%= form.text_field :estado, placeholder: "Estado" %>
+        <%= form.text_field :cidade, placeholder: "Cidade" %>
+      </div>
+    </div>
+  <% end %>
+</section>

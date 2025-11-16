@@ -4,5 +4,6 @@ class DashboardController < ApplicationController
   
   def index
     @aluno = current_aluno
-  end
+  
+  end  
 end

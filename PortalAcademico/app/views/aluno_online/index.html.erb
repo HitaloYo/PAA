@@ -1,2 +1,137 @@
-<h1>AlunoOnline#index</h1>
-<p>Find me in app/views/aluno_online/index.html.erb</p>
+<section class="welcome aluno-online-welcome">
+  <div class="welcome-text">
+    <h2><i class="bi bi-laptop"></i> Aluno Online</h2>
+    <p>Consulte suas informações acadêmicas, notas e situação curricular.</p>
+  </div>
+  <%= image_tag "logo.png", alt: "Logo Instituto", class: "logo-welcome" %>
+</section>
+
+<section class="content aluno-online-content">
+  <!-- Informações Acadêmicas -->
+  <div class="info-card">
+    <h3><i class="bi bi-person-badge"></i> Informações Acadêmicas</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <strong>Nome:</strong>
+        <span>André Freire</span>
+      </div>
+      <div class="info-item">
+        <strong>Matrícula:</strong>
+        <span>20250123</span>
+      </div>
+      <div class="info-item">
+        <strong>Curso:</strong>
+        <span>Ciência da Computação</span>
+      </div>
+      <div class="info-item">
+        <strong>Período:</strong>
+        <span>4º Período</span>
+      </div>
+      <div class="info-item">
+        <strong>Turno:</strong>
+        <span>Noturno</span>
+      </div>
+      <div class="info-item">
+        <strong>Situação:</strong>
+        <span class="status status-regular">Regular</span>
+      </div>
+      <div class="info-item">
+        <strong>IRA:</strong>
+        <span>8.2</span>
+      </div>
+      <div class="info-item">
+        <strong>Créditos Concluídos:</strong>
+        <span>1.280/3.200</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notas por Disciplina -->
+  <div class="notas-card">
+    <h3><i class="bi bi-journal-text"></i> Notas do Semestre</h3>
+    <div class="table-container">
+      <table class="notas-table">
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>Professor</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Média</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Programação Web</td>
+            <td>Prof. Carlos Silva</td>
+            <td>8.5</td>
+            <td>7.0</td>
+            <td>9.0</td>
+            <td>8.2</td>
+            <td><span class="status status-regular">Aprovado</span></td>
+          </tr>
+          <tr>
+            <td>Banco de Dados</td>
+            <td>Prof. Maria Santos</td>
+            <td>6.0</td>
+            <td>7.5</td>
+            <td>8.0</td>
+            <td>7.2</td>
+            <td><span class="status status-regular">Aprovado</span></td>
+          </tr>
+          <tr>
+            <td>Engenharia de Software</td>
+            <td>Prof. João Oliveira</td>
+            <td>5.5</td>
+            <td>6.0</td>
+            <td>--</td>
+            <td>5.8</td>
+            <td><span class="status status-pendente">Cursando</span></td>
+          </tr>
+          <tr>
+            <td>Redes de Computadores</td>
+            <td>Prof. Ana Costa</td>
+            <td>4.0</td>
+            <td>5.0</td>
+            <td>--</td>
+            <td>4.5</td>
+            <td><span class="status status-inadimplente">Recuperação</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Disciplinas Matriculadas -->
+  <div class="disciplinas-card">
+    <h3><i class="bi bi-book"></i> Disciplinas Matriculadas</h3>
+    <div class="disciplinas-grid">
+      <div class="disciplina-item">
+        <h4>Programação Web</h4>
+        <p><strong>Código:</strong> CCW001</p>
+        <p><strong>Créditos:</strong> 4</p>
+        <p><strong>Horário:</strong> Seg 19:00-22:30</p>
+      </div>
+      <div class="disciplina-item">
+        <h4>Banco de Dados</h4>
+        <p><strong>Código:</strong> CCB002</p>
+        <p><strong>Créditos:</strong> 4</p>
+        <p><strong>Horário:</strong> Ter 19:00-22:30</p>
+      </div>
+      <div class="disciplina-item">
+        <h4>Engenharia de Software</h4>
+        <p><strong>Código:</strong> CCE003</p>
+        <p><strong>Créditos:</strong> 4</p>
+        <p><strong>Horário:</strong> Qua 19:00-22:30</p>
+      </div>
+      <div class="disciplina-item">
+        <h4>Redes de Computadores</h4>
+        <p><strong>Código:</strong> CCR004</p>
+        <p><strong>Créditos:</strong> 4</p>
+        <p><strong>Horário:</strong> Qui 19:00-22:30</p>
+      </div>
+    </div>
+  </div>
+</section>
