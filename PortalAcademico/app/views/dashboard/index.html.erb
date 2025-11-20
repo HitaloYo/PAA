@@ -1,12 +1,12 @@
 <header>
   <h1>Instituto Qualquer</h1>
   <div class="header-buttons">
-    <%= link_to perfil_path, class: 'header-button' do %>
-      <i class="bi bi-person-circle"></i> Perfil
-    <% end %>
-    
     <%= link_to disciplinas_path, class: 'header-button' do %>
       <i class="bi bi-file-earmark-text"></i> Disciplinas
+    <% end %>
+
+    <%= link_to perfil_path, class: 'header-button' do %>
+      <i class="bi bi-person-circle"></i> Perfil
     <% end %>
     
     <%= button_to logout_path, method: :delete, class: 'header-button logout-btn', form: { style: 'display: inline;' } do %>

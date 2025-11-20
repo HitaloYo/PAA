@@ -11,11 +11,11 @@
   <header>
     <h1>Instituto Qualquer</h1>
     <div class="header-buttons">
-      <%= link_to perfil_path, class: "header-button" do %>
-        <i class="bi bi-person-circle"></i> Perfil
-      <% end %>
       <%= link_to root_path, class: "header-button" do %>
         <i class="bi bi-house-door"></i> Página Principal
+      <% end %>
+      <%= link_to perfil_path, class: "header-button" do %>
+        <i class="bi bi-person-circle"></i> Perfil
       <% end %>
       <%= link_to logout_path, method: :delete, class: "header-button" do %>
         <i class="bi bi-box-arrow-right"></i> Sair
