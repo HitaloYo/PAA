@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   
   #Solicitações
   get 'solicitacoes', to: 'solicitacoes#index'
-  post 'solicitacoes', to 'solcitacoes'
   # Paginas Estaticas
   #get 'sobre', to: 'staticpages#sobre'
   get 'contato', to: 'staticpages#contato'
