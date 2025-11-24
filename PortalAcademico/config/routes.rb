@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get 'ajuda-login', to: 'staticpages#ajudalogin'
   
   #Perfil do aluno
-  get 'perfil', to: "perfil#index"
+  get 'perfil', to: 'perfil#edit'
+  patch 'perfil', to: 'perfil#update'
+  patch 'perfil/password', to: 'perfil#update_password'
   
   #ambiente virtual
   get 'ambiente_virtual', to: "ambiente_virtual#index"

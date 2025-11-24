@@ -17,7 +17,7 @@
       <%= link_to perfil_path, class: "header-button" do %>
         <i class="bi bi-person-circle"></i> Perfil
       <% end %>
-      <%= link_to logout_path, method: :delete, class: "header-button" do %>
+       <%= button_to logout_path, method: :delete, class: 'header-button logout-btn', form: { style: 'display: inline;' } do %>
         <i class="bi bi-box-arrow-right"></i> Sair
       <% end %>
     </div>

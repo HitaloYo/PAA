@@ -241,3 +241,134 @@ header h1 {
   font-family: "Poppins", sans-serif;
   min-width: 120px;
 }
+/* Status colors */
+.status-regular { 
+  background-color: #e6f9f0; 
+  color: #00b36b; 
+  border: 1px solid #00b36b; 
+}
+
+.status-inativo { 
+  background-color: #f8f9fa; 
+  color: #6c757d; 
+  border: 1px solid #6c757d; 
+}
+
+/* Form improvements */
+input[readonly] {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.perfil-grupo:last-child {
+  text-align: center;
+  border: none;
+  box-shadow: none;
+}
+
+.perfil-grupo:last-child .btn-editar {
+  background-color: rgb(132, 14, 201);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.perfil-grupo:last-child .btn-editar:hover {
+  background-color: #9b30ff;
+}
+/* Dropdown Styles - Corrigido para sobrepor tudo */
+.dropdown-container {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+  z-index: 10000; /* Z-index muito alto */
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  text-align: left;
+  position: relative;
+  z-index: 10001;
+}
+
+.dropdown-button:hover {
+  border-color: #999;
+}
+
+.dropdown-selected {
+  flex: 1;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: #666;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 10002; /* Z-index ainda mais alto */
+  margin-top: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-options.show {
+  display: block;
+}
+
+.dropdown-option {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.dropdown-option:hover {
+  background-color: #f8f9fa;
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}
+
+/* Garantir que outros elementos não interfiram */
+.perfil-direita {
+  position: relative;
+}
+
+.perfil-grupo {
+  position: relative;
+}
+
+/* Reset para outros inputs */
+.form-linha input[type="text"],
+.form-linha input[type="email"],
+.form-linha input[type="date"] {
+  position: relative;
+  z-index: 1;
+}

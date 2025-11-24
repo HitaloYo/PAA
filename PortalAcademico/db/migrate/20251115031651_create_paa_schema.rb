@@ -13,36 +13,6 @@ class CreatePaaSchema < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    # Tabela PROFESSOR
-    create_table :professors do |t|
-      t.string :matricula, null: false
-      t.string :nome, null: false
-      t.string :email, null: false
-      t.string :departamento, null: false
-      t.boolean :ativo, null: false, default: true
-      t.timestamps
-    end
-
-    # Tabela DISCIPLINA (corrigindo o nome)
-    create_table :disciplinas do |t|
-      t.references :professor, null: false, foreign_key: true
-      t.string :codigo, null: false
-      t.string :nome, null: false
-      t.integer :carga_horaria, null: false
-      t.timestamps
-    end
-
-    # Tabela TURMA
-    create_table :turmas do |t|
-      t.references :disciplina, null: false, foreign_key: true
-      t.string :codigo_turma, null: false
-      t.integer :semestre, null: false
-      t.integer :ano, null: false
-      t.integer :vagas_totais, null: false
-      t.integer :vagas_ocupadas, null: false, default: 0
-      t.timestamps
-    end
-
     # Tabela AVALIACAO
     create_table :avaliacoes do |t|
       t.references :turma, null: false, foreign_key: true
@@ -53,15 +23,6 @@ class CreatePaaSchema < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    # Tabela MATRICULA
-    create_table :matriculas do |t|
-      t.references :aluno, null: false, foreign_key: true
-      t.references :turma, null: false, foreign_key: true
-      t.string :situacao, null: false
-      t.float :nota_final
-      t.integer :frequencia, default: 0
-      t.timestamps
-    end
 
     # Tabela NOTA
     create_table :notas do |t|

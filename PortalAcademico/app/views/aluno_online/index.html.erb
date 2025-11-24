@@ -1,3 +1,4 @@
+<!-- app/views/aluno_online/index.html.erb -->
 <section class="welcome aluno-online-welcome">
   <div class="welcome-text">
     <h2><i class="bi bi-laptop"></i> Aluno Online</h2>
@@ -13,35 +14,37 @@
     <div class="info-grid">
       <div class="info-item">
         <strong>Nome:</strong>
-        <span>André Freire</span>
+        <span><%= @aluno.nome %></span>
       </div>
       <div class="info-item">
         <strong>Matrícula:</strong>
-        <span>20250123</span>
+        <span><%= @aluno.matricula %></span>
       </div>
       <div class="info-item">
         <strong>Curso:</strong>
-        <span>Ciência da Computação</span>
+        <span><%= @aluno.curso || 'Não informado' %></span>
       </div>
       <div class="info-item">
         <strong>Período:</strong>
-        <span>4º Período</span>
+        <span><%= @aluno.periodo || 'Não informado' %></span>
       </div>
       <div class="info-item">
         <strong>Turno:</strong>
-        <span>Noturno</span>
+        <span><%= @aluno.turno || 'Não informado' %></span>
       </div>
       <div class="info-item">
         <strong>Situação:</strong>
-        <span class="status status-regular">Regular</span>
+        <span class="status status-<%= @aluno.ativo ? 'regular' : 'inativo' %>">
+          <%= @aluno.ativo ? 'Regular' : 'Inativo' %>
+        </span>
       </div>
       <div class="info-item">
         <strong>IRA:</strong>
-        <span>8.2</span>
+        <span><%= @ira %></span>
       </div>
       <div class="info-item">
         <strong>Créditos Concluídos:</strong>
-        <span>1.280/3.200</span>
+        <span><%= @creditos_concluidos %></span>
       </div>
     </div>
   </div>
@@ -63,42 +66,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Programação Web</td>
-            <td>Prof. Carlos Silva</td>
-            <td>8.5</td>
-            <td>7.0</td>
-            <td>9.0</td>
-            <td>8.2</td>
-            <td><span class="status status-regular">Aprovado</span></td>
-          </tr>
-          <tr>
-            <td>Banco de Dados</td>
-            <td>Prof. Maria Santos</td>
-            <td>6.0</td>
-            <td>7.5</td>
-            <td>8.0</td>
-            <td>7.2</td>
-            <td><span class="status status-regular">Aprovado</span></td>
-          </tr>
-          <tr>
-            <td>Engenharia de Software</td>
-            <td>Prof. João Oliveira</td>
-            <td>5.5</td>
-            <td>6.0</td>
-            <td>--</td>
-            <td>5.8</td>
-            <td><span class="status status-pendente">Cursando</span></td>
-          </tr>
-          <tr>
-            <td>Redes de Computadores</td>
-            <td>Prof. Ana Costa</td>
-            <td>4.0</td>
-            <td>5.0</td>
-            <td>--</td>
-            <td>4.5</td>
-            <td><span class="status status-inadimplente">Reprovado</span></td>
-          </tr>
+          <% if @matriculas.any? %>
+            <% @matriculas.each do |matricula| %>
+              <tr>
+                <td><%= matricula.turma.disciplina.nome %></td>
+                <td>Prof. <%= matricula.turma.disciplina.professor.nome %></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td><%= matricula.nota_final || '--' %></td>
+                <td>
+                  <span class="status status-<%= matricula.situacao.downcase %>">
+                    <%= matricula.situacao %>
+                  </span>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="7" class="text-center">Nenhuma disciplina matriculada no momento</td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -108,30 +96,23 @@
   <div class="disciplinas-card">
     <h3><i class="bi bi-book"></i> Disciplinas Matriculadas</h3>
     <div class="disciplinas-grid">
-      <div class="disciplina-item">
-        <h4>Programação Web</h4>
-        <p><strong>Código:</strong> CCW001</p>
-        <p><strong>Créditos:</strong> 4</p>
-        <p><strong>Horário:</strong> Seg 19:00-22:30</p>
-      </div>
-      <div class="disciplina-item">
-        <h4>Banco de Dados</h4>
-        <p><strong>Código:</strong> CCB002</p>
-        <p><strong>Créditos:</strong> 4</p>
-        <p><strong>Horário:</strong> Ter 19:00-22:30</p>
-      </div>
-      <div class="disciplina-item">
-        <h4>Engenharia de Software</h4>
-        <p><strong>Código:</strong> CCE003</p>
-        <p><strong>Créditos:</strong> 4</p>
-        <p><strong>Horário:</strong> Qua 19:00-22:30</p>
-      </div>
-      <div class="disciplina-item">
-        <h4>Redes de Computadores</h4>
-        <p><strong>Código:</strong> CCR004</p>
-        <p><strong>Créditos:</strong> 4</p>
-        <p><strong>Horário:</strong> Qui 19:00-22:30</p>
-      </div>
+      <% if @matriculas.any? %>
+        <% @matriculas.each do |matricula| %>
+          <div class="disciplina-item">
+            <h4><%= matricula.turma.disciplina.nome %></h4>
+            <p><strong>Código:</strong> <%= matricula.turma.disciplina.codigo %></p>
+            <p><strong>Créditos:</strong> 4</p>
+            <p><strong>Horário:</strong> A definir</p>
+            <p><strong>Professor:</strong> <%= matricula.turma.disciplina.professor.nome %></p>
+            <p><strong>Turma:</strong> <%= matricula.turma.codigo_turma %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="no-disciplinas">
+          <i class="bi bi-book-x" style="font-size: 48px; color: #6c757d;"></i>
+          <p>Nenhuma disciplina matriculada no momento.</p>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
