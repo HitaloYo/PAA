@@ -4,6 +4,7 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-Icons-purple)
 
 URL PARA TESTES: https://site-qnxh.onrender.com/login.
+
 Sistema web completo para gestão acadêmica de alunos, desenvolvido em Ruby on Rails com interface moderna e responsiva.
 
 ## 📋 Sobre o Projeto
