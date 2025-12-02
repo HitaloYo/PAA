@@ -1,8 +1,8 @@
 # Portal Acadêmico do Aluno
-![Site Para Teste](https://site-qnxh.onrender.com/login)
 ![Ruby](https://img.shields.io/badge/Ruby-3.2.2-red)
 ![Rails](https://img.shields.io/badge/Rails-7.0.8-red)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-Icons-purple)
+![Site Para Teste](https://site-qnxh.onrender.com/login)
 
 Sistema web completo para gestão acadêmica de alunos, desenvolvido em Ruby on Rails com interface moderna e responsiva.
 
