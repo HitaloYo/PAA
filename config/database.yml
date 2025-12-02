@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: portal_academico_development
+
+test:
+  <<: *default
+  database: portal_academico_test
+
+production:
+  primary: &primary_production
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+  
+  # AQUI ESTÁ O TRUQUE:
+  # Apontamos o Cable (WebSockets), Cache e Queue (Fila) 
+  # para o mesmo banco de dados "primary" que configuramos acima.
+  cable:
+    <<: *primary_production
+  
+  queue:
+    <<: *primary_production
+  
+  cache:
+    <<: *primary_production

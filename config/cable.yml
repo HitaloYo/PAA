@@ -1,0 +1,5 @@
+# config/cable.yml
+production:
+  adapter: redis  # Se usar Redis no Render
+  # OU
+  
